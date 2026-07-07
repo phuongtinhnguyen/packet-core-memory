@@ -1,8 +1,8 @@
 export const giftContent = {
   unlockStorageKey: "memoryGiftUnlocked",
-  cardLabel: "Thiệp chúc mừng nghỉ sinh",
-  kicker: "Gửi chị leader của team",
-  title: "Chúc chị có một kỳ nghỉ sinh thật bình an",
+  cardLabel: "Packet Core Card",
+  kicker: "Gửi chị iuuu",
+  title: "Chúc chị có một kỳ nghỉ sinh thật vuii",
   paragraphs: [
     "Vài tháng tới, team mình sẽ tạm vắng một người chị luôn giữ nhịp, gỡ rối, nhắc deadline và âm thầm đỡ cho mọi người rất nhiều điều.",
     "Chúc chị nghỉ ngơi thật tốt, ăn ngủ thật ngoan, giữ sức khỏe thật nhiều và tận hưởng trọn vẹn những ngày đặc biệt bên em bé cùng gia đình.",
