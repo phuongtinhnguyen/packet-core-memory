@@ -1,7 +1,7 @@
 import { scratchContent } from "../data/content.js";
 import { useScratchCard } from "../hooks/useScratchCard.js";
 
-const revealImage = `${import.meta.env.BASE_URL}assets/photos/memory-1.svg`;
+const revealImage = `${import.meta.env.BASE_URL}assets/photos/0.jpg`;
 
 export default function ScratchCard({ hasUnlocked, onOpen, onUnlock }) {
   const { cardRef, canvasRef, isUnlocked, startScratch, moveScratch } = useScratchCard({

@@ -1,35 +1,14 @@
-export const memories = [
-  {
-    image: "assets/photos/memory-1.svg",
-    alt: "Khoảnh khắc đầu tiên cùng chị",
-    title: "Khoảnh khắc đầu tiên cùng chị",
-  },
-  {
-    image: "assets/photos/memory-2.svg",
-    alt: "Những buổi họp có chị dẫn dắt",
-    title: "Những buổi họp có chị dẫn dắt",
-  },
-  {
-    image: "assets/photos/memory-3.svg",
-    alt: "Những lần team cùng vượt deadline",
-    title: "Những lần team cùng vượt deadline",
-  },
-  {
-    image: "assets/photos/memory-4.svg",
-    alt: "Một góc kỷ niệm của team",
-    title: "Một góc kỷ niệm của team",
-  },
-  {
-    image: "assets/photos/memory-2.svg",
-    alt: "Lời chúc nhỏ gửi chị leader",
-    title: "Lời chúc nhỏ gửi chị leader",
-  },
-  {
-    image: "assets/photos/memory-3.svg",
-    alt: "Ngày team tạm gửi chị về với em bé",
-    title: "Ngày team tạm gửi chị về với em bé",
-  },
-];
+const memoryPhotoSources = Array.from({ length: 37 }, (_, index) => `${index + 1}.jpg`);
+
+export const memories = memoryPhotoSources.map((fileName, index) => {
+  const paddedNumber = String(index + 1).padStart(2, "0");
+
+  return {
+    image: `assets/photos/${fileName}`,
+    alt: `Kỷ niệm Packet Core ${paddedNumber}`,
+    title: `Kỷ niệm Packet Core ${paddedNumber}`,
+  };
+});
 
 export const timelineItems = [
   {

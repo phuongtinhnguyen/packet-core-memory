@@ -4,53 +4,28 @@ const PATTERN_COLUMNS = 11;
 const PATTERN_ROWS = 7;
 const COPIES = [-1, 0, 1];
 const AUTO_SPEED = { x: -26, y: -18 };
+const MEMORY_STEP = 17;
 
 function wrapOffset(value, size) {
   if (!size) return 0;
   return ((value % size) + size) % size;
 }
 
-function pickMemory(row, column, grid, memories) {
-  const blockedImages = new Set();
-  const left = grid[row]?.[column - 1];
-  const above = grid[row - 1]?.[column];
-  const firstInRow = grid[row]?.[0];
-  const firstInColumn = grid[0]?.[column];
-
-  if (left) blockedImages.add(left.image);
-  if (above) blockedImages.add(above.image);
-  if (column === PATTERN_COLUMNS - 1 && firstInRow) blockedImages.add(firstInRow.image);
-  if (row === PATTERN_ROWS - 1 && firstInColumn) blockedImages.add(firstInColumn.image);
-
-  let memoryIndex =
-    (row * 17 + column * 31 + row * column * 7 + (row % 3) * 5 + (column % 4) * 3) %
-    memories.length;
-
-  for (let attempt = 0; attempt < memories.length; attempt += 1) {
-    const candidate = memories[(memoryIndex + attempt) % memories.length];
-    if (!blockedImages.has(candidate.image)) {
-      return candidate;
-    }
-  }
-
-  return memories[memoryIndex];
-}
-
 function buildPatternTiles(memories) {
-  const grid = Array.from({ length: PATTERN_ROWS }, () => []);
-
-  for (let row = 0; row < PATTERN_ROWS; row += 1) {
-    for (let column = 0; column < PATTERN_COLUMNS; column += 1) {
-      grid[row][column] = pickMemory(row, column, grid, memories);
-    }
+  if (memories.length === 0) {
+    return [];
   }
 
-  return grid.flatMap((rowItems, row) =>
-    rowItems.map((memory, column) => ({
+  return Array.from({ length: PATTERN_ROWS * PATTERN_COLUMNS }, (_, tileIndex) => {
+    const row = Math.floor(tileIndex / PATTERN_COLUMNS);
+    const column = tileIndex % PATTERN_COLUMNS;
+    const memory = memories[(tileIndex * MEMORY_STEP) % memories.length];
+
+    return {
       ...memory,
       key: `${row}-${column}-${memory.title}`,
-    })),
-  );
+    };
+  });
 }
 
 export default function MemoryGallery({ memories }) {

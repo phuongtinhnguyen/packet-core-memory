@@ -14,13 +14,13 @@ export const giftContent = {
 
 export const memoriesPageContent = {
   hint: "Kéo để xem những khoảnh khắc team gửi tặng chị",
-  backLabel: "Trở về lời chúc",
+  backLabel: "Trở về",
 };
 
 export const scratchContent = {
   sectionLabel: "Thẻ cào lời chúc",
   canvasLabel: "Lớp thẻ cào bí mật",
-  openButton: "Nhấp để mở",
+  openButton: "Nhấn để mở",
   coverTitle: "Cào đi nào chị iuu",
   coverSubtitle: "",
 };

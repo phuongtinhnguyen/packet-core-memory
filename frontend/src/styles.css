@@ -330,7 +330,7 @@ a {
 .gift-card {
   position: relative;
   width: min(400px, 100%);
-  aspect-ratio: 4 / 5.32;
+  aspect-ratio: 1536 / 1671;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.78);
   border-radius: 26px;
@@ -398,12 +398,18 @@ a {
   inset: 0;
   display: grid;
   place-items: center;
+  background-color: rgba(255, 238, 246, 0.82);
   background-position: center;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
   transform: translateZ(18px);
 }
 
 .open-badge {
+  position: absolute;
+  top: auto;
+  bottom: 10%;
+  left: 50%;
   display: inline-grid;
   place-items: center;
   min-width: 114px;
@@ -417,6 +423,7 @@ a {
   font-weight: 800;
   box-shadow: 0 14px 38px rgba(209, 55, 101, 0.32);
   cursor: pointer;
+  transform: translateX(-50%);
 }
 
 .gift-card canvas {
@@ -491,11 +498,13 @@ a {
 }
 
 .gallery-pattern {
+  --photo-gap: 42px;
   width: max-content;
   display: grid;
   grid-template-columns: repeat(11, clamp(230px, 17vw, 340px));
   grid-auto-rows: clamp(205px, 17vw, 340px);
-  gap: 42px;
+  gap: var(--photo-gap);
+  padding: calc(var(--photo-gap) / 2);
 }
 
 .photo-card {
@@ -518,15 +527,16 @@ a {
   left: 50%;
   bottom: 24px;
   z-index: 4;
-  width: min(360px, calc(100% - 36px));
+  width: min(300px, calc(100% - 36px));
   display: grid;
-  gap: 12px;
+  gap: 8px;
   justify-items: center;
-  padding: 22px 24px;
+  padding: 14px 18px;
   border: 1px solid rgba(255, 255, 255, 0.56);
-  border-radius: 26px;
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.54);
   color: #ff5f72;
+  font-size: 0.82rem;
   font-weight: 800;
   transform: translateX(-50%);
   backdrop-filter: blur(16px);
@@ -540,15 +550,15 @@ a {
 
 .memory-exit button {
   display: inline-flex;
-  min-height: 40px;
+  min-height: 34px;
   align-items: center;
   justify-content: center;
-  padding: 0 26px;
+  padding: 0 20px;
   border: 0;
   border-radius: 999px;
   background: #ff6973;
   color: #fff;
-  font-size: 0.92rem;
+  font-size: 0.82rem;
   font-weight: 800;
   cursor: pointer;
 }
@@ -612,9 +622,9 @@ a {
   }
 
   .gallery-pattern {
+    --photo-gap: 26px;
     grid-template-columns: repeat(11, 230px);
     grid-auto-rows: 230px;
-    gap: 26px;
   }
 }
 
@@ -697,23 +707,23 @@ a {
 
   .memory-exit {
     bottom: max(14px, env(safe-area-inset-bottom));
-    width: min(320px, calc(100% - 28px));
-    gap: 10px;
-    padding: 16px 18px;
-    border-radius: 22px;
-    font-size: 0.82rem;
+    width: min(270px, calc(100% - 28px));
+    gap: 7px;
+    padding: 12px 14px;
+    border-radius: 18px;
+    font-size: 0.74rem;
   }
 
   .memory-exit button {
-    min-height: 38px;
-    padding: 0 22px;
-    font-size: 0.84rem;
+    min-height: 32px;
+    padding: 0 18px;
+    font-size: 0.78rem;
   }
 
   .gallery-pattern {
+    --photo-gap: 20px;
     grid-template-columns: repeat(11, 180px);
     grid-auto-rows: 180px;
-    gap: 20px;
   }
 
   .photo-card {
