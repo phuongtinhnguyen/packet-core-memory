@@ -80,12 +80,10 @@ a {
   inset: -18%;
   z-index: 2;
   background:
-    repeating-linear-gradient(
-      135deg,
+    repeating-linear-gradient(135deg,
       transparent 0 18px,
       rgba(255, 255, 255, 0.22) 18px 21px,
-      transparent 21px 46px
-    );
+      transparent 21px 46px);
   opacity: 0;
   transform: translate3d(-18%, 18%, 0);
   animation: splashScratchField 1.2s ease-out 0.55s forwards;
@@ -357,23 +355,19 @@ a {
 
 .gift-card::before {
   background:
-    radial-gradient(
-      circle at var(--press-x, 50%) var(--press-y, 50%),
+    radial-gradient(circle at var(--press-x, 50%) var(--press-y, 50%),
       rgba(78, 22, 44, 0.28) 0,
       rgba(78, 22, 44, 0.14) 12%,
-      rgba(255, 255, 255, 0) 34%
-    );
+      rgba(255, 255, 255, 0) 34%);
   mix-blend-mode: multiply;
 }
 
 .gift-card::after {
   background:
-    radial-gradient(
-      circle at var(--press-x, 50%) var(--press-y, 50%),
+    radial-gradient(circle at var(--press-x, 50%) var(--press-y, 50%),
       rgba(255, 255, 255, 0.42) 0,
       rgba(255, 255, 255, 0.18) 10%,
-      transparent 28%
-    );
+      transparent 28%);
   transform: translate3d(var(--shine-x, 0), var(--shine-y, 0), 20px);
 }
 
@@ -408,20 +402,20 @@ a {
 .open-badge {
   position: absolute;
   top: auto;
-  bottom: 10%;
+  bottom: 14%;
   left: 50%;
   display: inline-grid;
   place-items: center;
-  min-width: 114px;
-  min-height: 48px;
-  padding: 0 24px;
+  min-width: 80px;
+  min-height: 30px;
+  padding: 0 12px;
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(135deg, #df4a74, #ef5c91);
+  background: linear-gradient(135deg, #f59ab0, #f8b4c7);
   color: #fff;
-  font-size: 0.92rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  box-shadow: 0 14px 38px rgba(209, 55, 101, 0.32);
+  box-shadow: 0 10px 24px rgba(209, 55, 101, 0.18);
   cursor: pointer;
   transform: translateX(-50%);
 }
@@ -460,15 +454,6 @@ a {
     linear-gradient(120deg, #c68c99, #f4a2cb 48%, #9a676f);
 }
 
-.memories-page::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: rgba(24, 18, 20, 0.34);
-}
-
 .gallery-runway {
   position: absolute;
   inset: 0;
@@ -489,11 +474,9 @@ a {
   top: 0;
   display: grid;
   grid-template-columns: repeat(3, max-content);
-  transform: translate3d(
-    calc(var(--loop-x) - var(--pattern-width)),
-    calc(var(--loop-y) - var(--pattern-height)),
-    0
-  );
+  transform: translate3d(calc(var(--loop-x) - var(--pattern-width)),
+      calc(var(--loop-y) - var(--pattern-height)),
+      0);
   will-change: transform;
 }
 
@@ -678,10 +661,10 @@ a {
   }
 
   .open-badge {
-    min-width: 104px;
-    min-height: 42px;
-    padding: 0 20px;
-    font-size: 0.86rem;
+    min-width: 76px;
+    min-height: 28px;
+    padding: 0 10px;
+    font-size: 0.66rem;
   }
 
   .wish-caption {
@@ -742,6 +725,7 @@ a {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
