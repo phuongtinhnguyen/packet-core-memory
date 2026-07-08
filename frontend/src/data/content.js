@@ -4,7 +4,7 @@ export const giftContent = {
   kicker: "Gửi chị iuuu",
   title: "Chúc chị iu có khoảng thời gian nghỉ ngơi hạnh phúc bên gia đình và đón bé thật khỏe mạnh 🎉",
   paragraphs: [
-    "Vài tháng tới, team mình sẽ tạm vắng chị iu. Chúc chị nghỉ ngơi thật tốt, ăn ngủ thật ngoan, giữ sức khỏe thật nhiều và tận hưởng trọn vẹn những ngày đặc biệt bên em bé cùng gia đình. 🥰",
+    "Sắp tới, team mình sẽ tạm vắng chị iu một khoảng thời gian ngắn để chị chào đón thành viên mới của gia đình. Chúc chị nghỉ ngơi thật tốt, ăn ngủ thật ngoan, giữ sức khỏe thật nhiều và tận hưởng trọn vẹn những ngày đặc biệt bên em bé cùng gia đình. 🥰",
     "Team sẽ nhớ chị lắm, nhưng tụi em cũng mong chị cứ yên tâm nghỉ sinh. Khi chị quay lại, hy vọng chị sẽ mang theo thật nhiều năng lượng mới, còn tụi em thì vẫn ở đây, chờ được nghe chị kể chuyện hehe. 😁",
   ],
   caption: "",
