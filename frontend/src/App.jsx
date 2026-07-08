@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import AmbientBackground from "./components/AmbientBackground.jsx";
 import MemoryGallery from "./components/MemoryGallery.jsx";
 import MusicToggle from "./components/MusicToggle.jsx";
@@ -21,6 +21,7 @@ export default function App() {
         <Route path="/" element={<GiftPage canPlayIntro={!isSplashVisible} />} />
         <Route path="/memories" element={<MemoriesPage />} />
       </Routes>
+      <MusicToggle />
       {isSplashVisible ? <SplashScreen onComplete={() => setIsSplashVisible(false)} /> : null}
     </>
   );
@@ -49,8 +50,16 @@ function getInitialUnlockedState() {
 
 function GiftPage({ canPlayIntro = true }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const [hasUnlockedGift, setHasUnlockedGift] = useState(getInitialUnlockedState);
+  const [shouldShowFullLetter] = useState(() => Boolean(location.state?.showFullLetter));
   let paragraphDelay = 300;
+
+  useEffect(() => {
+    if (location.state?.showFullLetter) {
+      navigate(".", { replace: true, state: null });
+    }
+  }, [location.state, navigate]);
 
   function openMemories() {
     navigate("/memories");
@@ -78,6 +87,7 @@ function GiftPage({ canPlayIntro = true }) {
                   <TypewriterText
                     key={paragraph}
                     active={canPlayIntro}
+                    instant={shouldShowFullLetter}
                     text={paragraph}
                     delay={delay}
                   />
@@ -93,7 +103,6 @@ function GiftPage({ canPlayIntro = true }) {
           {giftContent.caption ? <p className="wish-caption">{giftContent.caption}</p> : null}
         </section>
       </main>
-      <MusicToggle />
     </>
   );
 }
@@ -102,7 +111,7 @@ function MemoriesPage() {
   const navigate = useNavigate();
 
   function returnToGift() {
-    navigate("/");
+    navigate("/", { state: { showFullLetter: true } });
   }
 
   return (
@@ -116,7 +125,6 @@ function MemoriesPage() {
           </button>
         </div>
       </main>
-      <MusicToggle />
     </>
   );
 }

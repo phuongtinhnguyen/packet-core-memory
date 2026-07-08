@@ -12,7 +12,7 @@ export const giftContent = {
 
 export const memoriesPageContent = {
   hint: "Kéo để xem những khoảnh khắc team gửi tặng chị",
-  backLabel: "Trở về",
+  backLabel: "Thoát xem ký ức",
 };
 
 export const scratchContent = {
@@ -27,7 +27,7 @@ export const musicContent = {
   play: "Phát nhạc",
   stop: "Tắt nhạc",
   missing: "Thêm nhạc",
-  source: "assets/music/soft-memory.mp3",
+  source: "assets/music/Giac-Mo-Than-Tien-Doraemon.mp3",
 };
 
 export const introContent = {

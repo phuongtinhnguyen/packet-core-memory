@@ -81,6 +81,7 @@ export default function ScratchCard({ hasUnlocked, onOpen, onUnlock }) {
           />
         ) : null}
       </div>
+      {canOpen ? <p className="scratch-reveal-caption">Tadaa! 🌸❤️❤️</p> : null}
     </section>
   );
 }

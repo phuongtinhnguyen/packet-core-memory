@@ -231,11 +231,11 @@ a {
 
 .wish-card {
   position: relative;
-  width: min(1000px, 100%);
+  width: min(1080px, 100%);
   min-height: 590px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px);
-  gap: 52px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 480px);
+  gap: 48px;
   align-items: center;
   padding: 30px;
   border: 1px solid var(--line);
@@ -322,18 +322,20 @@ a {
 
 .gift-stage {
   display: grid;
+  gap: 10px;
   place-items: center;
 }
 
 .gift-card {
+  --gift-card-radius: 0px;
   position: relative;
-  width: min(400px, 100%);
+  width: min(480px, 100%);
   aspect-ratio: 1536 / 1671;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.78);
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.24);
-  box-shadow: 0 22px 54px rgba(219, 74, 113, 0.18);
+  border: 0;
+  border-radius: var(--gift-card-radius);
+  background: transparent;
+  box-shadow: none;
   isolation: isolate;
   transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
   transform-style: preserve-3d;
@@ -372,7 +374,7 @@ a {
 }
 
 .gift-card.is-hovered {
-  box-shadow: 0 32px 72px rgba(194, 56, 98, 0.28);
+  box-shadow: none;
 }
 
 .gift-card.is-hovered::after {
@@ -380,7 +382,7 @@ a {
 }
 
 .gift-card.is-pressing {
-  box-shadow: 0 16px 42px rgba(142, 42, 75, 0.24);
+  box-shadow: none;
 }
 
 .gift-card.is-pressing::before {
@@ -392,17 +394,20 @@ a {
   inset: 0;
   display: grid;
   place-items: center;
+  overflow: hidden;
+  border-radius: inherit;
   background-color: rgba(255, 238, 246, 0.82);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  clip-path: inset(0 round var(--gift-card-radius));
   transform: translateZ(18px);
 }
 
 .open-badge {
   position: absolute;
   top: auto;
-  bottom: 14%;
+  bottom: 20%;
   left: 50%;
   display: inline-grid;
   place-items: center;
@@ -426,6 +431,8 @@ a {
   z-index: 2;
   width: 100%;
   height: 100%;
+  border-radius: inherit;
+  clip-path: inset(0 round var(--gift-card-radius));
   touch-action: none;
   cursor: grab;
 }
@@ -434,6 +441,14 @@ a {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.28s ease;
+}
+
+.scratch-reveal-caption {
+  margin: 0;
+  color: #df4a74;
+  font-size: 1rem;
+  font-weight: 900;
+  text-align: center;
 }
 
 .wish-caption {
@@ -496,6 +511,8 @@ a {
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.14);
   box-shadow: 0 18px 48px rgba(72, 30, 45, 0.28);
+  transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+  will-change: transform;
 }
 
 .photo-card img {
@@ -503,6 +520,19 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: filter 0.24s ease, transform 0.24s ease;
+}
+
+.photo-card:hover {
+  z-index: 3;
+  border-color: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 24px 64px rgba(72, 30, 45, 0.36);
+  transform: translateY(-8px) scale(1.035);
+}
+
+.photo-card:hover img {
+  filter: brightness(1.06) saturate(1.08);
+  transform: scale(1.045);
 }
 
 .memory-exit {
@@ -656,8 +686,8 @@ a {
   }
 
   .gift-card {
-    width: min(100%, 330px);
-    border-radius: 22px;
+    --gift-card-radius: 0px;
+    width: min(100%, 390px);
   }
 
   .open-badge {
@@ -665,6 +695,10 @@ a {
     min-height: 28px;
     padding: 0 10px;
     font-size: 0.66rem;
+  }
+
+  .scratch-reveal-caption {
+    font-size: 0.9rem;
   }
 
   .wish-caption {
@@ -720,7 +754,7 @@ a {
   }
 
   .gift-card {
-    width: min(100%, 285px);
+    width: min(100%, 335px);
   }
 }
 

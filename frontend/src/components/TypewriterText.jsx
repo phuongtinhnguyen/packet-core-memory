@@ -1,11 +1,16 @@
 import { useEffect, useMemo, useState } from "react";
 
-export default function TypewriterText({ text, active = true, delay = 0, speed = 18 }) {
+export default function TypewriterText({ text, active = true, instant = false, delay = 0, speed = 18 }) {
   const characters = useMemo(() => Array.from(text), [text]);
   const [visibleCount, setVisibleCount] = useState(0);
-  const shouldShowCaret = active && visibleCount > 0 && visibleCount < characters.length;
+  const shouldShowCaret = !instant && active && visibleCount > 0 && visibleCount < characters.length;
 
   useEffect(() => {
+    if (instant) {
+      setVisibleCount(characters.length);
+      return undefined;
+    }
+
     setVisibleCount(0);
 
     if (!active) {
@@ -30,7 +35,7 @@ export default function TypewriterText({ text, active = true, delay = 0, speed =
       window.clearTimeout(timeoutId);
       window.clearInterval(intervalId);
     };
-  }, [active, characters.length, delay, speed, text]);
+  }, [active, characters.length, delay, instant, speed, text]);
 
   return (
     <p className="typewriter-text" aria-label={text}>
